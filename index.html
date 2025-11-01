@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillSphere - Learn & Grow</title>
+<style>
+  * {margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+  body {background:#f8f9fa;color:#222;}
+  a{text-decoration:none;color:inherit;}
+  button{cursor:pointer;}
+
+  /* Navbar */
+  header{background:#fff;padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100;}
+  .logo{font-size:1.5rem;font-weight:700;} .logo span{color:#007bff;}
+  nav ul{display:flex;gap:20px;} nav ul li{list-style:none;} nav ul li a{font-weight:500;}
+  nav ul li a:hover{color:#007bff;}
+
+  /* Hero */
+  .hero{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:4rem 5%;background:linear-gradient(120deg,#e6f0ff,#ffffff);}
+  .hero-text{flex:1;min-width:300px;margin-bottom:1.5rem;}
+  .hero-text h1{font-size:2.5rem;margin-bottom:1rem;}
+  .hero-text p{margin-bottom:1.5rem;color:#555;}
+  .hero-text button{padding:.8rem 1.5rem;background:#007bff;color:#fff;border:none;border-radius:8px;font-weight:600;transition:.3s;}
+  .hero-text button:hover{background:#0056b3;}
+  .hero-img{flex:1;min-width:300px;text-align:center;}
+  .hero-img img{width:400px;border-radius:15px;}
+
+  /* Features */
+  .features{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;padding:4rem 5%;background:#eef3fa;}
+  .feature-card{background:#fff;padding:2rem;border-radius:12px;width:250px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.1);transition:transform .3s;}
+  .feature-card:hover{transform:translateY(-10px);}
+  .feature-card img{width:60px;margin-bottom:1rem;}
+  .feature-card h3{margin-bottom:.5rem;color:#007bff;}
+  .feature-card p{color:#555;font-size:.9rem;}
+
+  /* Courses */
+  .courses{text-align:center;padding:4rem 5%;}
+  .courses h2{font-size:2rem;margin-bottom:2rem;}
+  .course-container{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;}
+  .course-card{background:linear-gradient(145deg,#1f1f2e,#2c2c3c);border-radius:15px;overflow:hidden;width:300px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.2);transition:transform 0.3s,box-shadow 0.3s;}
+  .course-card:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(0,0,0,0.4);}
+  .course-img{position:relative;height:180px;overflow:hidden;}
+  .course-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+  .course-card:hover .course-img img{transform:scale(1.1);}
+  .overlay{position:absolute;bottom:0;width:100%;height:50px;background:rgba(0,123,255,0.7);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:1.1rem;opacity:0;transition:opacity 0.3s;}
+  .course-card:hover .overlay{opacity:1;}
+  .course-content{padding:1rem;}
+  .course-content h3{margin-bottom:.5rem;}
+  .course-content p{font-size:0.9rem;color:#dcdcdc;margin-bottom:1rem;}
+  .enroll-btn{background:#007bff;color:white;padding:.7rem 1rem;border:none;border-radius:6px;cursor:pointer;width:48%;margin-right:2%;display:inline-block;transition:background 0.3s;}
+  .preview-btn{background:#00d4ff;color:#222;padding:.7rem 1rem;border:none;border-radius:6px;cursor:pointer;width:48%;display:inline-block;transition:background 0.3s;}
+  .enroll-btn:hover{background:#0056b3;}
+  .preview-btn:hover{background:#00a3c7;}
+
+  /* About */
+  .about{display:flex;flex-wrap:wrap;justify-content:space-around;align-items:center;padding:4rem 5%;gap:2rem;background:#eef3fa;}
+  .about-text{flex:1;min-width:300px;}
+  .about img{width:400px;border-radius:12px;}
+
+  /* Testimonials */
+  .testimonials{text-align:center;padding:4rem 5%;background:#fff;}
+  .testimonial-container{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;}
+  .testimonial-card{background:#f0f8ff;padding:1.5rem;border-radius:10px;width:280px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+  .testimonial-card p{margin-bottom:.8rem;color:#222;}
+
+  /* Footer */
+  footer{background:#222;color:#fff;text-align:center;padding:1.5rem;font-size:.9rem;}
+
+  /* Responsive */
+  @media(max-width:900px){.hero-img img{width:300px;}}
+  @media(max-width:600px){.hero{flex-direction:column;}.hero-img img{width:100%;}.enroll-btn,.preview-btn{width:100%;margin-bottom:.5rem;}}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+  <div class="logo">Skill<span>Sphere</span></div>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h1>Learn Skills That Shape Your Future</h1>
+    <p>Explore industry-level courses in Data Science, Web Development, AI, and more.</p>
+    <button id="explore-btn">Explore Courses</button>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Learning">
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="features">
+  <div class="feature-card">
+    <img src="https://img.icons8.com/ios-filled/50/007bff/artificial-intelligence.png"/>
+    <h3>AI-Powered Learning</h3>
+    <p>Smart recommendations and adaptive learning paths for every student.</p>
+  </div>
+  <div class="feature-card">
+    <img src="https://img.icons8.com/ios-filled/50/007bff/online-learning.png"/>
+    <h3>Interactive Courses</h3>
+    <p>Hands-on projects, quizzes, and practical exercises to boost learning.</p>
+  </div>
+  <div class="feature-card">
+    <img src="https://img.icons8.com/ios-filled/50/007bff/certificate.png"/>
+    <h3>Certifications</h3>
+    <p>Get globally recognized certificates to showcase your skills.</p>
+  </div>
+</section>
+
+<!-- Courses -->
+<section id="courses" class="courses">
+  <h2>Popular Courses</h2>
+  <div class="course-container">
+    <div class="course-card">
+      <div class="course-img">
+        <img src="https://images.unsplash.com/photo-1581091870624-4d3d5a7e3a36?auto=format&fit=crop&w=1200&q=80" alt="Data Science">
+        <div class="overlay"><span>Data Science</span></div>
+      </div>
+      <div class="course-content">
+        <h3>Data Science with Python</h3>
+        <p>Analyze data, build ML models, and visualize insights using Python & AI.</p>
+        <button class="enroll-btn">Enroll</button>
+        <button class="preview-btn">Preview</button>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-img">
+        <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=1200&q=80" alt="Web Development">
+        <div class="overlay"><span>Web Development</span></div>
+      </div>
+      <div class="course-content">
+        <h3>Full Stack Web Development</h3>
+        <p>Master HTML, CSS, JavaScript, and modern backend frameworks.</p>
+        <button class="enroll-btn">Enroll</button>
+        <button class="preview-btn">Preview</button>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-img">
+        <img src="https://images.unsplash.com/photo-1504691342899-6f33d5d3d5d0?auto=format&fit=crop&w=1200&q=80" alt="UI/UX Design">
+        <div class="overlay"><span>UI/UX Design</span></div>
+      </div>
+      <div class="course-content">
+        <h3>UI/UX Design Essentials</h3>
+        <p>Create futuristic and intuitive interfaces using Figma & Adobe XD.</p>
+        <button class="enroll-btn">Enroll</button>
+        <button class="preview-btn">Preview</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about">
+  <div class="about-text">
+    <h2>About SkillSphere</h2>
+    <p>We empower learners through practical courses, mentorship, and community-driven growth. Our goal is to bridge the gap between academic learning and real-world application.</p>
+  </div>
+  <img src="https://images.unsplash.com/photo-1581091870624-4d3d5a7e3a36?auto=format&fit=crop&w=800&q=80" alt="About">
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <h2>What Learners Say</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-card">
+      <p>"The Data Science course was hands-on and fun! Loved the mentorship."</p>
+      <h4>- Aisha Sharma</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"Clean UI and structured lessons made learning smooth."</p>
+      <h4>- Raj Mehta</h4>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+  <p>© 2025 | Designed with by Abhishek</p>
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('header nav a').forEach(link=>{
+    link.addEventListener('click',e=>{
+      e.preventDefault();
+      document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  document.getElementById('explore-btn').addEventListener('click',()=>{
+    document.getElementById('courses').scrollIntoView({behavior:'smooth'});
+  });
+</script>
+
+</body>
+</html>
